@@ -1,0 +1,25 @@
+{
+  "name": "lesson12",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "config": "^3.3.12",
+    "converter-mb": "^1.1.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.1",
+    "filesize": "^10.1.6",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.2",
+    "sha256": "^0.2.0"
+  }
+}

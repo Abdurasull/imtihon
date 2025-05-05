@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "name": "Abdurasul",
+        "email": "Ass@gmail.com",
+        "password": "b185a60ae0e933f36e244500c7680060587c2241a6b9fd5a8d234fe429615d14",
+        "avatar": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\avatars\\1746422861724photo_2024-04-13_03-42-38.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Abdurasul",
+        "email": "Assss@gmail.com",
+        "password": "b185a60ae0e933f36e244500c7680060587c2241a6b9fd5a8d234fe429615d14",
+        "avatar": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\avatars\\1746422902622photo_2024-04-13_03-42-38.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Assalomu",
+        "email": "Asas@gmail.com",
+        "password": "c8388b9d3e5c38c77c0de635c72947ffb4e12a8a2971210227187c70622ee1e6",
+        "avatar": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\avatars\\1746423242844photo_2023-01-17_17-25-18.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Assalomu",
+        "email": "Asaghs@gmail.com",
+        "password": "427aee70d69d3e1fbe3c1ff30b4dfba5d5eb14d1975dbc9150f3cf65251d3300",
+        "avatar": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\avatars\\1746424358250photo_2023-01-17_17-25-18.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Assalomu",
+        "email": "Asagddhs@gmail.com",
+        "password": "d79e4d56a65844e9060a0eb79335511486f8b3acb5a1a3db84a91302f9580b21",
+        "avatar": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\avatars\\1746424570144photo_2023-01-17_17-25-18.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Abdurasul",
+        "email": "Asso@gmail.com",
+        "password": "3d396a381a3cec64d142eb86a7209b5bc1dd85fb3137a6cb407fec4ba8c9f18e",
+        "avatar": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\avatars\\1746425136485photo_2023-01-17_17-25-18.jpg"
+    },
+    {
+        "id": 7,
+        "name": "asx",
+        "email": "Abdurasulsalimov94@gmail.com",
+        "password": "e1d04c2ae964c9688b265adbaedd61b8db7234597bba1bb0cc9a0037f5cb7686",
+        "avatar": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\avatars\\1746427049678image3.jpg"
+    }
+]
