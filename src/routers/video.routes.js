@@ -7,5 +7,6 @@ export const videoRouter = express.Router();
 videoRouter.post("/video/:userId", jwtValidator, videoValidator, uploadController.ADDVIDEO);
 videoRouter.delete("/video/:userId", jwtValidator, uploadController.DELETEVIDEO);
 videoRouter.get("/video/:userId", jwtValidator, uploadController.GETVIDEO);
+videoRouter.post("/search", jwtValidator, uploadController.SEARCHVIDEO);
  
 

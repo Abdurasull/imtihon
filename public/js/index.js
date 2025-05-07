@@ -5,19 +5,36 @@ const elAllUsers = document.querySelector(".navbar-list");
 const elTemplate = document.querySelector(".js-otherVideos").content;
 const elUlusers = document.querySelector(".iframes-list");
 const AllVideos = document.querySelector(".iframes-list");
+const elFormSearch = document.querySelector(".search-box");
 
 
-
+// Faqat ma`lum foydalanuvchilarga tegishli videolarni tortish uchun function
 async function getIdVideos(id){
     const res = await fetch(`http://localhost:4000/api/upload/video/${id}`,
         {
             headers: {
+                
                 "Authorization": "Bearer " + window.localStorage.getItem("token")
             }
         }
     );
     return await res.json();
 
+}
+
+// Vidiolarni nomi bo`yicha search qilish un function
+async function searchVideos(data) {
+    const res = await fetch("http://localhost:4000/api/upload/search",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        }
+    );
+    return await res.json();
 }
 
 elMenu.addEventListener("click", () => {
@@ -65,6 +82,36 @@ elAllUsers.addEventListener("click", async (evt) => {
 
     }
 
-})
+});
+
+elFormSearch.addEventListener("submit", async (evt) => {
+    evt.preventDefault();
+    const data = new FormData(elFormSearch);
+    let result = Object.fromEntries(data); 
+    result = await searchVideos(result);
+    if(result.status == 200){
+            if(!result.videos.length == 0){
+                const docFragment = document.createDocumentFragment();
+                result.videos.forEach(video => {
+                    const clone = elTemplate.cloneNode(true);
+                    clone.querySelector(".iframe-video").src = "/" + video.filePath;
+                    clone.querySelector(".ownerImage").src = "/" + video.ownerImage;
+                    clone.querySelector(".channel-name").textContent = video.owner;
+                    clone.querySelector(".iframe-title").textContent = video.title;
+                    clone.querySelector(".uploaded-time").textContent = video.createdAt;
+                    clone.querySelector(".download1").textContent = video.size + " MB";
+                    clone.querySelector(".download").href = "/" + video.filePath;
+                    docFragment.append(clone);
+                });
+                elUlusers.innerHTML = '';
+                AllVideos.append(docFragment);
+            } else {
+                AllVideos.innerHTML = '';
+                AllVideos.innerHTML = "<h1> Hali birorta ham video joylanmagan</h1>";
+            }
+
+            }
+    
+});
 
 

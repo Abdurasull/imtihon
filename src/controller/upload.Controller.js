@@ -57,5 +57,17 @@ export const uploadController = {
         }catch(err){
             globalError(err, res);
         }
+    },
+    SEARCHVIDEO: async (req, res) => {
+        try{
+            const search = req.body.search_input;            
+            
+            const videos = await req.readFile("videos.json");
+            const searchVideos = videos.filter(video => video.title.toLowerCase().includes(search.toLowerCase()));
+            res.status(200).json({videos: searchVideos, status: 200, message: "hammasi keldi"});
+        } catch(err){
+            globalError(err, res);
+        }
     }
+
 }
