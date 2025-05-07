@@ -1,34 +1,27 @@
 
 
 export const viewscontroller = {
-    MAIN: (req, res) => res.render("register.ejs", {title: "register sahifasi"}),
+    MAIN: async (req, res) => {  
+        const {userId} = req.params;
+        const videos = await req.readFile("videos.json");
+        const users = await req.readFile("users.json");
+        const user = users.find(user => user.id == userId);
+        res.render("index.ejs", {title: "index sahifasi", ownVideos: videos, user: user, users: users.filter(user => user.id != userId) } );
+    }, 
     USER_PAGE: async (req, res) =>{
-        // const todos = await req.readFile("todoList.json");
-        // const {userId} = req.params;
-        // const todoList = todos.find(list => list.userId == userId);
-        res.render("userPage.ejs", {title: "Foydalanuvchi sahifasi"});
-    },
-    LOGIN: (req, res) => res.render("login.ejs", {title: "login sahifasi"}), 
-    ACTIVE_TODOS: async (req, res) => {
-        const todos = await req.readFile("todoList.json");
         const {userId} = req.params;
-        const todoList = todos.find(list => list.userId == userId);
-        if(todoList.todos.length) {
-            const activeTodos = todoList.todos.filter(todo => todo.completed);
-            res.render("userPage.ejs", {title: "Foydalanuvchi sahifasi", todos: activeTodos.reverse()});
-        } else {
-            res.render("userPage.ejs", {title: "Foydalanuvchi sahifasi", todos: []});
-        }
+        const users = await req.readFile("users.json");
+        const user = users.find(user => user.id == userId);
+        const videos = await req.readFile("videos.json");
+        const ownVideos = videos.filter(video => video.userId == userId); 
+        res.render("userPage.ejs", {title: "Foydalanuvchi sahifasi", ownVideos: ownVideos});
     },
-    NO_ACTIVE_TODOS: async (req, res) => {
-        const todos = await req.readFile("todoList.json");
-        const {userId} = req.params;
-        const todoList = todos.find(list => list.userId == userId);
-        if(todoList.todos.length) {
-            const noActiveTodos = todoList.todos.filter(todo => !todo.completed);
-            res.render("userPage.ejs", {title: "Foydalanuvchi sahifasi", todos: noActiveTodos.reverse()});
-        } else {
-            res.render("userPage.ejs", {title: "Foydalanuvchi sahifasi", todos: []});
-        }
+    LOGIN: (req, res) => {
+        console.log("salom")
+        res.render("login.ejs", {title: "login sahifasi"});
+    }, 
+    REGISTER: async (req, res) => {
+        res.render("register.ejs", {title: "Foydalanuvchi sahifasi"});
+        
     }  
 }

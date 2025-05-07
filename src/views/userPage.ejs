@@ -18,7 +18,7 @@
     <div class="container">
         <header class="header">
             <section class="header-left">
-                <a href="/index" title="YouTube Home">
+                <a class="menu-icon"  title="YouTube Home">
                     <svg viewbox="0 0 200 60" focusable="false"
                         style="pointer-events: none; display: block; width: 100px; height: 30px;">
                         <g viewbox="0 0 200 60" class="style-scope yt-icon">
@@ -59,31 +59,34 @@
         <main class="main">
             <div class="wrapper">
                 <h1 class="title">Upload a video</h1>
-                <form action="#" class="site-form">
+                <form class="js-form site-form">
                     <label>
-                        <input type="text" id="videoInput" placeholder="video title" required>
+                        <input type="text" name="title" id="videoInput" placeholder="video title" required>
                     </label>
                     <label class="custom-upload">
                         <span class="zmdi zmdi-upload"></span>
                         <span class="file-name">click upload a video</span>
-                        <input type="file" id="uploadInput" accept="video/*">
+                        <input type="file" name="video" id="uploadInput">
                     </label>
                     <input type="submit" value="Upload" id="submitButton">
+                    <p class="Error" style="color: red; margin-top: 20px;"></p>
                 </form>
-                <img src="img/signin-image.jpg" class="signup-image">
+                <img src="/img/signin-image.jpg" class="signup-image">
             </div>
             <div class="admin-wrapper">
                 <ul class="videos-list">
+                    <% ownVideos.forEach(video => { %>
                     <li class="video-item">
-                        <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls=""></video>
-                        <p class="content" data-id="2" contenteditable="true">dars</p>
-                        <img src="./img/delete.png" width="25px" alt="upload" class="delete-icon" data-id="2">
+                        <video src="/<%= video.filePath %>" controls=""></video>
+                        <p class="content" data-id="2" contenteditable="true"><%= video.title %></p>
+                        <img src="/img/delete.png" data-delId="<%= video.id %>"  width="25px" alt="upload" class="delete-icon" >
                     </li>
+                    <% }); %>
                 </ul>
             </div>
         </main>
     </div>
-    <script src="js/userPage.js"></script>
+    <script src="/js/userPage.js"></script>
 
 </body>
 

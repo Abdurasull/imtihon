@@ -1,9 +1,42 @@
 [
     {
         "id": 1,
+        "userId": "2",
+        "createdAt": "2025:05:07 10:40",
+        "title": "Ajoyib Kino",
+        "name": "17465964393321746526361389IMG_6586.mov",
+        "size": 5,
+        "filePath": "videos/17465964393321746526361389IMG_6586.mov",
+        "ownerImage": "avatars\\1746548356243688537140963c571b7f486cee401b8d7--gala-arab-swag.jpg"
+    },
+    {
+        "id": 2,
+        "userId": "2",
+        "createdAt": "2025:05:07 10:40",
+        "title": "Ko`rsangiz bo`ldi",
+        "name": "17465964597131746509063187IMG_6580.mov",
+        "size": 4,
+        "filePath": "videos/17465964597131746509063187IMG_6580.mov",
+        "ownerImage": "avatars\\1746548356243688537140963c571b7f486cee401b8d7--gala-arab-swag.jpg"
+    },
+    {
+        "id": 3,
         "userId": "1",
-        "name": "1746383843458IMG_6586.MOV",
-        "size": 5243417,
-        "filePath": "C:\\NajotTalim\\SN1\\2-oy\\lesson12\\uploads\\videos\\1746383843470IMG_6586.MOV"
+        "createdAt": "2025:05:07 10:42",
+        "title": "Kinoni dodasi",
+        "name": "1746596554848o8B0IzD1f7NiCyamAAEMk9HvpiuwkiIBQ8qAtT.mp4",
+        "size": 3,
+        "filePath": "videos/1746596554848o8B0IzD1f7NiCyamAAEMk9HvpiuwkiIBQ8qAtT.mp4",
+        "ownerImage": "avatars\\1746547505276photo_2023-01-17_17-25-18.jpg"
+    },
+    {
+        "id": 4,
+        "userId": "3",
+        "createdAt": "2025:05:07 10:43",
+        "title": "Chidasa bo`ladi",
+        "name": "1746596638135IMG_6586.MOV",
+        "size": 5,
+        "filePath": "videos/1746596638135IMG_6586.MOV",
+        "ownerImage": "avatars\\1746561413431image3.jpg"
     }
 ]

@@ -4,6 +4,7 @@ import config from 'config';
 export const serverConfig = {
     filePathVideo: (filename) => path.join(process.cwd(), 'uploads/videos', filename),
     filePathAvatars: (filename) => path.join(process.cwd(), 'uploads/avatars', filename),
+    fileURLavatar: (filename) => path.join("avatars", filename),
     dbPath: (filename) => path.join(process.cwd(), 'db', filename),
     PORT: config.get("PORT"),
     TOKIN_KEY: config.get("TOKIN_KEY"),

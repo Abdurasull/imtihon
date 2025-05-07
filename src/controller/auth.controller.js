@@ -3,12 +3,15 @@ import { jwtToken } from "../lib/jwt.js";
 import { globalError } from "../utils/error.js";
 import sha256 from "sha256";
 import { avatarfilenames } from "../utils/finename.js";
+import { fileURLToPath } from "url";
 
 export const authController = {
     "register": async (req, res) => {
         try{   
+            
             // fotoni faylga joylash uchun
-            req.files.image.mv(serverConfig.filePathAvatars(avatarfilenames(req)));
+            const filename = avatarfilenames(req);
+            req.files.image.mv(serverConfig.filePathAvatars(filename));
 
             const users = await req.readFile("users.json");
             const id = users.length ? users.at(-1).id + 1 : 1 ;
@@ -17,13 +20,14 @@ export const authController = {
                 name: req.body.name,
                 email: req.body.email,
                 password: sha256(req.body.password),
-                avatar: serverConfig.filePathAvatars(avatarfilenames(req))
+                avatar: serverConfig.fileURLavatar(filename)
             };
             users.push(newUser);
             await req.writeFile("users.json", users);
             
             const token = jwtToken.createToken({id: newUser.id, email: newUser.email});
             console.log(newUser);
+            console.log(token);
             
             res.status(201).json(
             {
@@ -43,10 +47,11 @@ export const authController = {
     },
     "login": async (req, res) => {
         try{
+            
             const {email, password} = req.body;
+            
             const users = await req.readFile("users.json");
             const user = users.find(user => user.email === email && user.password === sha256(password));
-            
             const token = jwtToken.createToken({id: user.id, email: user.email});
             res.status(200).json({
                 message: "User logged in successfully",

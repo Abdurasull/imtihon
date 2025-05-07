@@ -16,16 +16,13 @@ elForm.addEventListener("submit", async (evt) => {
     evt.preventDefault();
 
     const form = evt.target;
-    const data = new FormData(form);
-    console.log(Object.fromEntries(data).image.name);
-    
-    console.log([...data.entries()][3])
+    const data = new FormData(form);    
     const result = await getData(data);
     if (result.status === 201) {
          document.querySelector(".Error").innerHTML = '';
         window.localStorage.setItem("token", result.token);
         window.localStorage.setItem("user", JSON.stringify(result.userInfo));
-        window.location.href = `/userPage/${result.userInfo.userId}`;
+        window.location.href = `/login`;
     } else {
         document.querySelector(".Error").textContent = result;
     }
